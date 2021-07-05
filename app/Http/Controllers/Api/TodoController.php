@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Todo;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -14,7 +16,47 @@ class TodoController extends Controller
      */
     public function index()
     {
-        //
+        $todo = Todo::query()
+            ->where([
+                ['in_progress', '0'],
+                ['is_completed', '0'],
+            ])
+            ->get();
+        $todos['title'] = 'Todos';
+        $todos['items'] = $todo;
+
+        $in_progress = Todo::query()
+            ->where([
+                ['in_progress', '1'],
+                ['is_completed', '0'],
+            ])
+            ->get();
+
+        $in_progress_todos['title'] = 'In Progress';
+        $in_progress_todos['items'] = $in_progress;
+
+        $is_completed = Todo::query()
+            ->where([
+                ['in_progress', '1'],
+                ['is_completed', '1'],
+            ])
+            ->get();
+
+        $is_completed_todos['title'] = 'Completed';
+        $is_completed_todos['items'] = $is_completed;
+
+
+        return response()->json(
+            [
+                'message' => 'success',
+                'data' => [
+                    'todos' => $todos,
+                    'in_progress' => $in_progress_todos,
+                    'is_completed' => $is_completed_todos,
+                ]
+            ],
+            200
+        );
     }
 
     /**
@@ -25,30 +67,65 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $rules = [
+            'title' => 'required|string|max:250',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return response()->json($errors, 404);
+        }
+        $todo = Todo::create([
+            'title' => $request->input('title'),
+            'in_progress' => 0,
+            'is_completed' => 0,
+        ]);
+        return response()->json(['message' => 'Created!', 'todo' => $todo], 200);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateInTodo($id)
     {
-        //
+        $todo = Todo::findOrfail($id);
+        $todo->in_progress = 0;
+        $todo->is_completed = 0;
+        $todo->save();
+        return response()->json(['message' => 'Updated!', 'todo' => $todo], 200);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateToInProgress($id)
+    {
+        $todo = Todo::findOrfail($id);
+        $todo->in_progress = 1;
+        $todo->is_completed = 0;
+        $todo->save();
+        return response()->json(['message' => 'Updated!', 'todo' => $todo], 200);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateToDone($id)
+    {
+        $todo = Todo::findOrfail($id);
+        $todo->in_progress = 1;
+        $todo->is_completed = 1;
+        $todo->save();
+        return response()->json(['message' => 'Updated!', 'todo' => $todo], 200);
     }
 
     /**
@@ -59,6 +136,7 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = Todo::findOrfail($id);
+        $todo->delete();
     }
 }
