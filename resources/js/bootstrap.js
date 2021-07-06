@@ -20,7 +20,7 @@ try {
  */
 
 window.axios = require('axios');
-window.axios.defaults.baseURL = 'http://kanban-board.test'
+window.axios.defaults.baseURL = 'http://kanban-board.test/api'
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mediusware</title>
+    <title>Kanban board</title>
     {{-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/logo/edusms_favicon.png') }}" /> --}}
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">

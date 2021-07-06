@@ -16,35 +16,29 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todo = Todo::query()
+        $todos['title'] = 'Todos';
+        $todos['items'] = Todo::query()
             ->where([
                 ['in_progress', '0'],
                 ['is_completed', '0'],
             ])
             ->get();
-        $todos['title'] = 'Todos';
-        $todos['items'] = $todo;
 
-        $in_progress = Todo::query()
+        $in_progress_todos['title'] = 'In Progress';
+        $in_progress_todos['items'] = Todo::query()
             ->where([
                 ['in_progress', '1'],
                 ['is_completed', '0'],
             ])
             ->get();
 
-        $in_progress_todos['title'] = 'In Progress';
-        $in_progress_todos['items'] = $in_progress;
-
-        $is_completed = Todo::query()
+        $is_completed_todos['title'] = 'Completed';
+        $is_completed_todos['items'] = Todo::query()
             ->where([
                 ['in_progress', '1'],
                 ['is_completed', '1'],
             ])
             ->get();
-
-        $is_completed_todos['title'] = 'Completed';
-        $is_completed_todos['items'] = $is_completed;
-
 
         return response()->json(
             [
