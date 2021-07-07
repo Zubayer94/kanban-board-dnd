@@ -9,5 +9,5 @@ class Todo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'in_progress', 'is_completed'];
+    protected $fillable = ['uuid', 'title', 'in_progress', 'is_completed'];
 }

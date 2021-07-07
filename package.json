@@ -23,5 +23,8 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "~1.32.6",
         "sass-loader": "^11.0.1"
+    },
+    "dependencies": {
+        "react-beautiful-dnd": "^13.1.0"
     }
 }

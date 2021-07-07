@@ -22,6 +22,7 @@ class TodoFactory extends Factory
     public function definition()
     {
         return [
+            'uuid' => "uuid-" . time() . mt_rand(1000, 9999),
             'title' => $this->faker->sentence($nbWords = 4, $variableNbWords = false),
             'in_progress' => $this->faker->numberBetween($min = 0, $max = 1),
             'is_completed' => $this->faker->numberBetween($min = 0, $max = 1),

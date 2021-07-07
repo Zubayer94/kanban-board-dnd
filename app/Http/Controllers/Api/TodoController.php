@@ -70,6 +70,7 @@ class TodoController extends Controller
             return response()->json($errors, 404);
         }
         $todo = Todo::create([
+            'uuid' => "uuid-" . time() . mt_rand(1000, 9999),
             'title' => $request->input('title'),
             'in_progress' => 0,
             'is_completed' => 0,

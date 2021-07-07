@@ -1,4 +1,6 @@
 import React, {useContext} from 'react'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import _ from 'lodash'
 import './todo.css'
 import { TodoContext } from '../../store/todoStore/TodoContext'
 
@@ -7,15 +9,49 @@ const Todos = () => {
 
     return (
         <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Todo Component</div>
-
-                        <div className="card-body">I'm an todo component!</div>
-                    </div>
-                </div>
-            </div>
+            <DragDropContext onDragEnd={e => console.log(e)}>
+                {
+                    _.map(todos, (data, key) => {
+                        return (
+                            <div key={key} className="column" >
+                                <div className="col-head">
+                                    <h5> <b>{data.title}</b></h5>
+                                </div>
+                                <Droppable droppableId={key} >
+                                {(provided, snapshot) => (
+                                    <div
+                                        ref={provided.innerRef}
+                                        {...provided.droppableProps}
+                                        className="droppable-col"
+                                        // style={{ backgroundColor: snapshot.isDraggingOver ? 'blue' : 'grey' }}
+                                        >
+                                            {provided.placeholder}
+                                        {
+                                            data.items.map((el, index) => {
+                                                return (
+                                                    <Draggable key={el.id} draggableId={el.uuid} index={index}>
+                                                    {(provided, snapshot) => (
+                                                        <div
+                                                            className="item"
+                                                            ref={provided.innerRef}
+                                                            {...provided.draggableProps}
+                                                            {...provided.dragHandleProps}
+                                                        >
+                                                            <h5>{el.title}</h5>
+                                                        </div>
+                                                    )}
+                                                    </Draggable>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                )}
+                                </Droppable>
+                            </div>
+                        )
+                    })
+                }
+            </DragDropContext>
         </div>
     )
 }

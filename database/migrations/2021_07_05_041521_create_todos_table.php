@@ -15,6 +15,7 @@ class CreateTodosTable extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
+            $table->string('uuid');
             $table->string('title', 255);
             $table->unsignedTinyInteger('in_progress')->default(0);
             $table->unsignedTinyInteger('is_completed')->default(0);
