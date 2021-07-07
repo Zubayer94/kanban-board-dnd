@@ -18,6 +18,7 @@ class TodoController extends Controller
     {
         $todos['title'] = 'Todos';
         $todos['items'] = Todo::query()
+            ->orderby('id', 'desc')
             ->where([
                 ['in_progress', '0'],
                 ['is_completed', '0'],
@@ -26,6 +27,7 @@ class TodoController extends Controller
 
         $in_progress_todos['title'] = 'In Progress';
         $in_progress_todos['items'] = Todo::query()
+            ->orderby('id', 'desc')
             ->where([
                 ['in_progress', '1'],
                 ['is_completed', '0'],
@@ -34,6 +36,7 @@ class TodoController extends Controller
 
         $is_completed_todos['title'] = 'Completed';
         $is_completed_todos['items'] = Todo::query()
+            ->orderby('id', 'desc')
             ->where([
                 ['in_progress', '1'],
                 ['is_completed', '1'],
@@ -84,43 +87,35 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateInTodo($id)
+    public function updateTodo(Request $request, $id)
     {
         $todo = Todo::findOrfail($id);
-        $todo->in_progress = 0;
-        $todo->is_completed = 0;
-        $todo->save();
-        return response()->json(['message' => 'Updated!', 'todo' => $todo], 200);
-    }
+        switch ($request->input('updateType')) {
+            case 'todos':
+                $todo->in_progress = 0;
+                $todo->is_completed = 0;
+                $todo->save();
+                return response()->json(['message' => 'Updated!'], 200);
+                break;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateToInProgress($id)
-    {
-        $todo = Todo::findOrfail($id);
-        $todo->in_progress = 1;
-        $todo->is_completed = 0;
-        $todo->save();
-        return response()->json(['message' => 'Updated!', 'todo' => $todo], 200);
-    }
+            case 'in_progress':
+                $todo->in_progress = 1;
+                $todo->is_completed = 0;
+                $todo->save();
+                return response()->json(['message' => 'Updated!'], 200);
+                break;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateToDone($id)
-    {
-        $todo = Todo::findOrfail($id);
-        $todo->in_progress = 1;
-        $todo->is_completed = 1;
-        $todo->save();
-        return response()->json(['message' => 'Updated!', 'todo' => $todo], 200);
+            case 'is_completed':
+                $todo->in_progress = 1;
+                $todo->is_completed = 1;
+                $todo->save();
+                return response()->json(['message' => 'Updated!'], 200);
+                break;
+
+            default:
+                return response()->json(['message' => 'Failed! Required field not found!'], 400);
+                break;
+        }
     }
 
     /**

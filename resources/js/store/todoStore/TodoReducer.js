@@ -4,51 +4,27 @@ export const TodoReducer = (todos, action) => {
             return action.todos
 
         case 'todoAdded':
-            return [{ ...action.todo}, ...todos]
+            let oldTodos = {...todos} 
 
-        case 'updatedInTodo':
-            return todos.map(todo => {
-                if (todo.title == 'Todos') {
-                    return todo.items.map(item => {
-                        if (item.id == action.todo.id) {
-                            item.in_progress = 0;
-                            item.is_completed = 0;
-                            
-                        }
-                        return item;
-                    })
-                }
-            })
+            oldTodos['todos'].items.splice(0, 0, action.todo);
+            
+            return oldTodos;
 
-        case 'updateToInProgress':
-            return todos.map(todo => {
-                if (todo.title == 'In Progress') {
-                    return todo.items.map(item => {
-                        if (item.id == action.todo.id) {
-                            item.in_progress = 1;
-                            item.is_completed = 0;
-                            
-                        }
-                        return item;
-                    })
-                }
-            })
+        case 'todoUpdated':
+            const {destination, source} = action.payload 
+            let tempTodos = {...todos} 
 
-        case 'updateToDone':
-            return todos.map(todo => {
-                if (todo.title == 'Completed') {
-                    return todo.items.map(item => {
-                        if (item.id == action.todo.id) {
-                            item.in_progress = 1;
-                            item.is_completed = 1;
-                            
-                        }
-                        return item;
-                    })
-                }
-            })
+            // store source item temporarily
+            let drggedTodo = {...todos[source.droppableId].items[source.index]}
+            
+            // first delete the source item 
+            tempTodos[source.droppableId].items.splice(source.index, 1);
+
+            // then add the temporary source item to the destination item and return state
+            tempTodos[destination.droppableId].items.splice(destination.index, 0, drggedTodo);
+            return tempTodos;
 
         default:
-            break;
+            return todos;
     }
 }

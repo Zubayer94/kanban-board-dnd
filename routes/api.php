@@ -19,6 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('todos', 'TodoController');
-Route::put('updateInTodo/{id}', 'TodoController@updateInTodo');
-Route::put('updateToInProgress/{id}', 'TodoController@updateToInProgress');
-Route::put('updateToDone/{id}', 'TodoController@updateToDone');
+Route::put('updateTodo/{id}', 'TodoController@updateTodo');

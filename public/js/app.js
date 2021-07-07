@@ -2133,6 +2133,53 @@ if (document.getElementById('app')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/todo/TodoItem.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/todo/TodoItem.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-beautiful-dnd */ "./node_modules/react-beautiful-dnd/dist/react-beautiful-dnd.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var TodoItem = function TodoItem(_ref) {
+  var element = _ref.element,
+      index = _ref.index;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_2__.Draggable, {
+    draggableId: element.uuid,
+    index: index,
+    children: function children(provided, snapshot) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", _objectSpread(_objectSpread(_objectSpread({
+        className: "item",
+        ref: provided.innerRef
+      }, provided.draggableProps), provided.dragHandleProps), {}, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h5", {
+          children: element.title
+        })
+      }));
+    }
+  }, element.id);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TodoItem);
+
+/***/ }),
+
 /***/ "./resources/js/components/todo/Todos.js":
 /*!***********************************************!*\
   !*** ./resources/js/components/todo/Todos.js ***!
@@ -2145,17 +2192,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-beautiful-dnd */ "./node_modules/react-beautiful-dnd/dist/react-beautiful-dnd.esm.js");
+/* harmony import */ var react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-beautiful-dnd */ "./node_modules/react-beautiful-dnd/dist/react-beautiful-dnd.esm.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _todo_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo.css */ "./resources/js/components/todo/todo.css");
 /* harmony import */ var _store_todoStore_TodoContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/todoStore/TodoContext */ "./resources/js/store/todoStore/TodoContext.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _TodoItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TodoItem */ "./resources/js/components/todo/TodoItem.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -2166,56 +2228,90 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var Todos = function Todos() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      todo = _useState2[0],
+      setTodo = _useState2[1];
+
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_store_todoStore_TodoContext__WEBPACK_IMPORTED_MODULE_3__.TodoContext),
       todos = _useContext.todos,
-      dispatch = _useContext.dispatch;
+      addTodo = _useContext.addTodo,
+      handleUpdate = _useContext.handleUpdate;
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-    className: "container",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__.DragDropContext, {
-      onDragEnd: function onDragEnd(e) {
-        return console.log(e);
-      },
-      children: lodash__WEBPACK_IMPORTED_MODULE_1___default().map(todos, function (data, key) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "column",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "col-head",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h5", {
-              children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
-                children: data.title
-              })]
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__.Droppable, {
-            droppableId: key,
-            children: function children(provided, snapshot) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", _objectSpread(_objectSpread({
-                ref: provided.innerRef
-              }, provided.droppableProps), {}, {
-                className: "droppable-col" // style={{ backgroundColor: snapshot.isDraggingOver ? 'blue' : 'grey' }}
-                ,
-                children: [provided.placeholder, data.items.map(function (el, index) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__.Draggable, {
-                    draggableId: el.uuid,
-                    index: index,
-                    children: function children(provided, snapshot) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", _objectSpread(_objectSpread(_objectSpread({
-                        className: "item",
-                        ref: provided.innerRef
-                      }, provided.draggableProps), provided.dragHandleProps), {}, {
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
-                          children: el.title
-                        })
-                      }));
-                    }
-                  }, el.id);
+  var handleDragDrop = function handleDragDrop(_ref) {
+    var destination = _ref.destination,
+        source = _ref.source;
+
+    if (!destination) {
+      return;
+    }
+
+    if (destination.droppableId === source.droppableId && destination.index === source.index) {
+      return;
+    }
+
+    var todoId = todos[source.droppableId].items[source.index].id;
+    handleUpdate(destination, source, todoId);
+  };
+
+  var handleAddingTodo = function handleAddingTodo() {
+    addTodo(todo).then(function (_) {
+      return setTodo('');
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "inputForm",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+        type: "text",
+        value: todo,
+        onChange: function onChange(e) {
+          return setTodo(e.target.value);
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+        onClick: handleAddingTodo,
+        children: "Add"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "container",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_6__.DragDropContext, {
+        onDragEnd: handleDragDrop,
+        children: lodash__WEBPACK_IMPORTED_MODULE_1___default().map(todos, function (data, key) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "column",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "col-head",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h5", {
+                children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+                  children: data.title
                 })]
-              }));
-            }
-          })]
-        }, key);
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_6__.Droppable, {
+              droppableId: key,
+              children: function children(provided, snapshot) {
+                var _data$items;
+
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", _objectSpread(_objectSpread({
+                  ref: provided.innerRef
+                }, provided.droppableProps), {}, {
+                  className: "droppable-col",
+                  style: {
+                    backgroundColor: snapshot.isDraggingOver ? 'darkorange' : null
+                  },
+                  children: [(_data$items = data.items) === null || _data$items === void 0 ? void 0 : _data$items.map(function (element, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_TodoItem__WEBPACK_IMPORTED_MODULE_4__.default, {
+                      element: element,
+                      index: index
+                    }, index);
+                  }), provided.placeholder]
+                }));
+              }
+            })]
+          }, key);
+        })
       })
-    })
+    })]
   });
 };
 
@@ -2241,7 +2337,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _TodoReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TodoReducer */ "./resources/js/store/todoStore/TodoReducer.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var notyf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! notyf */ "./node_modules/notyf/notyf.es.js");
+/* harmony import */ var notyf_notyf_min_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! notyf/notyf.min.css */ "./node_modules/notyf/notyf.min.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2264,6 +2362,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var TodoContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.createContext)();
 
 var TodoContextProvider = function TodoContextProvider(_ref) {
@@ -2274,6 +2374,14 @@ var TodoContextProvider = function TodoContextProvider(_ref) {
       todos = _useReducer2[0],
       dispatch = _useReducer2[1];
 
+  var notyf = new notyf__WEBPACK_IMPORTED_MODULE_4__.Notyf({
+    duration: 3000,
+    dismissible: true,
+    position: {
+      x: "right",
+      y: "top"
+    }
+  });
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
@@ -2296,10 +2404,83 @@ var TodoContextProvider = function TodoContextProvider(_ref) {
       }
     }, _callee);
   })), []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TodoContext.Provider, {
+
+  var addTodo = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(todo) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("todos", {
+                title: todo
+              }).then(function (_ref4) {
+                var data = _ref4.data;
+                dispatch({
+                  type: 'todoAdded',
+                  todo: data.todo
+                });
+                notyf.success("Added!");
+              })["catch"](function (error) {
+                notyf.error("Failed!");
+                console.log(error);
+              });
+
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function addTodo(_x) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  var handleUpdate = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(destination, source, todoId) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              dispatch({
+                type: 'todoUpdated',
+                payload: {
+                  destination: destination,
+                  source: source
+                }
+              });
+              _context3.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().put("updateTodo/".concat(todoId), {
+                updateType: destination.droppableId
+              }).then(function (_) {
+                return notyf.success("Success!");
+              })["catch"](function (error) {
+                notyf.error("Failed!");
+                console.log(error);
+              });
+
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function handleUpdate(_x2, _x3, _x4) {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(TodoContext.Provider, {
     value: {
       todos: todos,
-      dispatch: dispatch
+      dispatch: dispatch,
+      addTodo: addTodo,
+      handleUpdate: handleUpdate
     },
     children: children
   });
@@ -2326,70 +2507,35 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 var TodoReducer = function TodoReducer(todos, action) {
   switch (action.type) {
     case 'initializeTodos':
       return action.todos;
 
     case 'todoAdded':
-      return [_objectSpread({}, action.todo)].concat(_toConsumableArray(todos));
+      var oldTodos = _objectSpread({}, todos);
 
-    case 'updatedInTodo':
-      return todos.map(function (todo) {
-        if (todo.title == 'Todos') {
-          return todo.items.map(function (item) {
-            if (item.id == action.todo.id) {
-              item.in_progress = 0;
-              item.is_completed = 0;
-            }
+      oldTodos['todos'].items.splice(0, 0, action.todo);
+      return oldTodos;
 
-            return item;
-          });
-        }
-      });
+    case 'todoUpdated':
+      var _action$payload = action.payload,
+          destination = _action$payload.destination,
+          source = _action$payload.source;
 
-    case 'updateToInProgress':
-      return todos.map(function (todo) {
-        if (todo.title == 'In Progress') {
-          return todo.items.map(function (item) {
-            if (item.id == action.todo.id) {
-              item.in_progress = 1;
-              item.is_completed = 0;
-            }
+      var tempTodos = _objectSpread({}, todos); // store source item temporarily
 
-            return item;
-          });
-        }
-      });
 
-    case 'updateToDone':
-      return todos.map(function (todo) {
-        if (todo.title == 'Completed') {
-          return todo.items.map(function (item) {
-            if (item.id == action.todo.id) {
-              item.in_progress = 1;
-              item.is_completed = 1;
-            }
+      var drggedTodo = _objectSpread({}, todos[source.droppableId].items[source.index]); // first delete the source item 
 
-            return item;
-          });
-        }
-      });
+
+      tempTodos[source.droppableId].items.splice(source.index, 1); // then add the temporary source item to the destination item and return state
+
+      tempTodos[destination.droppableId].items.splice(destination.index, 0, drggedTodo);
+      return tempTodos;
 
     default:
-      break;
+      return todos;
   }
 };
 
@@ -7011,6 +7157,30 @@ var getBox = function getBox(el) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/notyf/notyf.min.css":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/notyf/notyf.min.css ***!
+  \****************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "@-webkit-keyframes notyf-fadeinup{0%{opacity:0;transform:translateY(25%)}to{opacity:1;transform:translateY(0)}}@keyframes notyf-fadeinup{0%{opacity:0;transform:translateY(25%)}to{opacity:1;transform:translateY(0)}}@-webkit-keyframes notyf-fadeinleft{0%{opacity:0;transform:translateX(25%)}to{opacity:1;transform:translateX(0)}}@keyframes notyf-fadeinleft{0%{opacity:0;transform:translateX(25%)}to{opacity:1;transform:translateX(0)}}@-webkit-keyframes notyf-fadeoutright{0%{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(25%)}}@keyframes notyf-fadeoutright{0%{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(25%)}}@-webkit-keyframes notyf-fadeoutdown{0%{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(25%)}}@keyframes notyf-fadeoutdown{0%{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(25%)}}@-webkit-keyframes ripple{0%{transform:scale(0) translateY(-45%) translateX(13%)}to{transform:scale(1) translateY(-45%) translateX(13%)}}@keyframes ripple{0%{transform:scale(0) translateY(-45%) translateX(13%)}to{transform:scale(1) translateY(-45%) translateX(13%)}}.notyf{position:fixed;top:0;left:0;height:100%;width:100%;color:#fff;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;pointer-events:none;box-sizing:border-box;padding:20px}.notyf__icon--error,.notyf__icon--success{height:21px;width:21px;background:#fff;border-radius:50%;display:block;margin:0 auto;position:relative}.notyf__icon--error:after,.notyf__icon--error:before{content:\"\";background:currentColor;display:block;position:absolute;width:3px;border-radius:3px;left:9px;height:12px;top:5px}.notyf__icon--error:after{transform:rotate(-45deg)}.notyf__icon--error:before{transform:rotate(45deg)}.notyf__icon--success:after,.notyf__icon--success:before{content:\"\";background:currentColor;display:block;position:absolute;width:3px;border-radius:3px}.notyf__icon--success:after{height:6px;transform:rotate(-45deg);top:9px;left:6px}.notyf__icon--success:before{height:11px;transform:rotate(45deg);top:5px;left:10px}.notyf__toast{display:block;overflow:hidden;pointer-events:auto;-webkit-animation:notyf-fadeinup .3s ease-in forwards;animation:notyf-fadeinup .3s ease-in forwards;box-shadow:0 3px 7px 0 rgba(0,0,0,.25);position:relative;padding:0 15px;border-radius:2px;max-width:300px;transform:translateY(25%);box-sizing:border-box;flex-shrink:0}.notyf__toast--disappear{transform:translateY(0);-webkit-animation:notyf-fadeoutdown .3s forwards;animation:notyf-fadeoutdown .3s forwards;-webkit-animation-delay:.25s;animation-delay:.25s}.notyf__toast--disappear .notyf__icon,.notyf__toast--disappear .notyf__message{-webkit-animation:notyf-fadeoutdown .3s forwards;animation:notyf-fadeoutdown .3s forwards;opacity:1;transform:translateY(0)}.notyf__toast--disappear .notyf__dismiss{-webkit-animation:notyf-fadeoutright .3s forwards;animation:notyf-fadeoutright .3s forwards;opacity:1;transform:translateX(0)}.notyf__toast--disappear .notyf__message{-webkit-animation-delay:.05s;animation-delay:.05s}.notyf__toast--upper{margin-bottom:20px}.notyf__toast--lower{margin-top:20px}.notyf__toast--dismissible .notyf__wrapper{padding-right:30px}.notyf__ripple{height:400px;width:400px;position:absolute;transform-origin:bottom right;right:0;top:0;border-radius:50%;transform:scale(0) translateY(-51%) translateX(13%);z-index:5;-webkit-animation:ripple .4s ease-out forwards;animation:ripple .4s ease-out forwards}.notyf__wrapper{display:flex;align-items:center;padding-top:17px;padding-bottom:17px;padding-right:15px;border-radius:3px;position:relative;z-index:10}.notyf__icon{width:22px;text-align:center;font-size:1.3em;opacity:0;-webkit-animation:notyf-fadeinup .3s forwards;animation:notyf-fadeinup .3s forwards;-webkit-animation-delay:.3s;animation-delay:.3s;margin-right:13px}.notyf__dismiss{position:absolute;top:0;right:0;height:100%;width:26px;margin-right:-15px;-webkit-animation:notyf-fadeinleft .3s forwards;animation:notyf-fadeinleft .3s forwards;-webkit-animation-delay:.35s;animation-delay:.35s;opacity:0}.notyf__dismiss-btn{background-color:rgba(0,0,0,.25);border:none;cursor:pointer;transition:opacity .2s ease,background-color .2s ease;outline:none;opacity:.35;height:100%;width:100%}.notyf__dismiss-btn:after,.notyf__dismiss-btn:before{content:\"\";background:#fff;height:12px;width:2px;border-radius:3px;position:absolute;left:calc(50% - 1px);top:calc(50% - 5px)}.notyf__dismiss-btn:after{transform:rotate(-45deg)}.notyf__dismiss-btn:before{transform:rotate(45deg)}.notyf__dismiss-btn:hover{opacity:.7;background-color:rgba(0,0,0,.15)}.notyf__dismiss-btn:active{opacity:.8}.notyf__message{vertical-align:middle;position:relative;opacity:0;-webkit-animation:notyf-fadeinup .3s forwards;animation:notyf-fadeinup .3s forwards;-webkit-animation-delay:.25s;animation-delay:.25s;line-height:1.5em}@media only screen and (max-width:480px){.notyf{padding:0}.notyf__ripple{height:600px;width:600px;-webkit-animation-duration:.5s;animation-duration:.5s}.notyf__toast{max-width:none;border-radius:0;box-shadow:0 -2px 7px 0 rgba(0,0,0,.13);width:100%}.notyf__dismiss{width:56px}}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/todo/todo.css":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/todo/todo.css ***!
@@ -7028,7 +7198,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n.container {\r\n    margin-top: 30px;\r\n    display: flex;\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: space-around;\r\n}\r\n\r\n.column {\r\n    width: 250px;\r\n    border: 1px solid rgb(31, 30, 30) !important;\r\n}\r\n.column .col-head {\r\n    width: 100%;\r\n    height: 35px;\r\n    background-color: tomato;\r\n}\r\n.column h5 {\r\n    color: rgb(97, 93, 93);\r\n    text-align: center;\r\n    padding-top: 6px;\r\n}\r\n\r\n.droppable-col {\r\n    width: 100%;\r\n    padding: 7px 7px 0 7px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.item {\r\n    margin-bottom: 5px;\r\n    color: rgb(102, 97, 97);\r\n    background-color: rgb(223, 215, 215);\r\n    border: 1px solid rgb(31, 30, 30) !important;\r\n    /* padding: 5px; */\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n.container {\r\n    margin-top: 30px;\r\n    display: flex;\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: space-around;\r\n}\r\n\r\n.column {\r\n    width: 250px;\r\n    border: 1px solid rgb(31, 30, 30) !important;\r\n}\r\n.column .col-head {\r\n    width: 100%;\r\n    height: 35px;\r\n    background-color: tomato;\r\n}\r\n.column h5 {\r\n    color: rgb(97, 93, 93);\r\n    text-align: center;\r\n    padding-top: 6px;\r\n}\r\n\r\n.droppable-col {\r\n    width: 100%;\r\n    padding: 15px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.item {\r\n    margin-bottom: 15px;\r\n    color: rgb(102, 97, 97);\r\n    background-color: rgb(223, 215, 215);\r\n    border: 1px solid rgb(31, 30, 30) !important;\r\n    padding: 5px;\r\n}\r\n\r\n.inputForm {\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-top: 30px;\r\n}\r\n\r\n.inputForm input {\r\n    margin-right: 10px;\r\n    height: 42px;\r\n    width: 265px;\r\n}\r\n.inputForm button {\r\n    width: 65px;\r\n    color: tomato;\r\n    font-weight: 900;\r\n    border: 1px solid rgb(31, 30, 30) !important;\r\n}\r\n.inputForm button:hover {\r\n    color: white;\r\n    background-color: tomato;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -35402,6 +35572,468 @@ function memoizeOne(resultFn, isEqual) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./node_modules/notyf/notyf.es.js":
+/*!****************************************!*\
+  !*** ./node_modules/notyf/notyf.es.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DEFAULT_OPTIONS": () => (/* binding */ DEFAULT_OPTIONS),
+/* harmony export */   "Notyf": () => (/* binding */ Notyf),
+/* harmony export */   "NotyfArray": () => (/* binding */ NotyfArray),
+/* harmony export */   "NotyfArrayEvent": () => (/* binding */ NotyfArrayEvent),
+/* harmony export */   "NotyfEvent": () => (/* binding */ NotyfEvent),
+/* harmony export */   "NotyfNotification": () => (/* binding */ NotyfNotification),
+/* harmony export */   "NotyfView": () => (/* binding */ NotyfView)
+/* harmony export */ });
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+var NotyfNotification = /** @class */ (function () {
+    function NotyfNotification(options) {
+        this.options = options;
+        this.listeners = {};
+    }
+    NotyfNotification.prototype.on = function (eventType, cb) {
+        var callbacks = this.listeners[eventType] || [];
+        this.listeners[eventType] = callbacks.concat([cb]);
+    };
+    NotyfNotification.prototype.triggerEvent = function (eventType, event) {
+        var _this = this;
+        var callbacks = this.listeners[eventType] || [];
+        callbacks.forEach(function (cb) { return cb({ target: _this, event: event }); });
+    };
+    return NotyfNotification;
+}());
+var NotyfArrayEvent;
+(function (NotyfArrayEvent) {
+    NotyfArrayEvent[NotyfArrayEvent["Add"] = 0] = "Add";
+    NotyfArrayEvent[NotyfArrayEvent["Remove"] = 1] = "Remove";
+})(NotyfArrayEvent || (NotyfArrayEvent = {}));
+var NotyfArray = /** @class */ (function () {
+    function NotyfArray() {
+        this.notifications = [];
+    }
+    NotyfArray.prototype.push = function (elem) {
+        this.notifications.push(elem);
+        this.updateFn(elem, NotyfArrayEvent.Add, this.notifications);
+    };
+    NotyfArray.prototype.splice = function (index, num) {
+        var elem = this.notifications.splice(index, num)[0];
+        this.updateFn(elem, NotyfArrayEvent.Remove, this.notifications);
+        return elem;
+    };
+    NotyfArray.prototype.indexOf = function (elem) {
+        return this.notifications.indexOf(elem);
+    };
+    NotyfArray.prototype.onUpdate = function (fn) {
+        this.updateFn = fn;
+    };
+    return NotyfArray;
+}());
+
+var NotyfEvent;
+(function (NotyfEvent) {
+    NotyfEvent["Dismiss"] = "dismiss";
+    NotyfEvent["Click"] = "click";
+})(NotyfEvent || (NotyfEvent = {}));
+var DEFAULT_OPTIONS = {
+    types: [
+        {
+            type: 'success',
+            className: 'notyf__toast--success',
+            backgroundColor: '#3dc763',
+            icon: {
+                className: 'notyf__icon--success',
+                tagName: 'i',
+            },
+        },
+        {
+            type: 'error',
+            className: 'notyf__toast--error',
+            backgroundColor: '#ed3d3d',
+            icon: {
+                className: 'notyf__icon--error',
+                tagName: 'i',
+            },
+        },
+    ],
+    duration: 2000,
+    ripple: true,
+    position: {
+        x: 'right',
+        y: 'bottom',
+    },
+    dismissible: false,
+};
+
+var NotyfView = /** @class */ (function () {
+    function NotyfView() {
+        this.notifications = [];
+        this.events = {};
+        this.X_POSITION_FLEX_MAP = {
+            left: 'flex-start',
+            center: 'center',
+            right: 'flex-end',
+        };
+        this.Y_POSITION_FLEX_MAP = {
+            top: 'flex-start',
+            center: 'center',
+            bottom: 'flex-end',
+        };
+        // Creates the main notifications container
+        var docFrag = document.createDocumentFragment();
+        var notyfContainer = this._createHTMLElement({ tagName: 'div', className: 'notyf' });
+        docFrag.appendChild(notyfContainer);
+        document.body.appendChild(docFrag);
+        this.container = notyfContainer;
+        // Identifies the main animation end event
+        this.animationEndEventName = this._getAnimationEndEventName();
+        this._createA11yContainer();
+    }
+    NotyfView.prototype.on = function (event, cb) {
+        var _a;
+        this.events = __assign(__assign({}, this.events), (_a = {}, _a[event] = cb, _a));
+    };
+    NotyfView.prototype.update = function (notification, type) {
+        if (type === NotyfArrayEvent.Add) {
+            this.addNotification(notification);
+        }
+        else if (type === NotyfArrayEvent.Remove) {
+            this.removeNotification(notification);
+        }
+    };
+    NotyfView.prototype.removeNotification = function (notification) {
+        var _this = this;
+        var renderedNotification = this._popRenderedNotification(notification);
+        var node;
+        if (!renderedNotification) {
+            return;
+        }
+        node = renderedNotification.node;
+        node.classList.add('notyf__toast--disappear');
+        var handleEvent;
+        node.addEventListener(this.animationEndEventName, (handleEvent = function (event) {
+            if (event.target === node) {
+                node.removeEventListener(_this.animationEndEventName, handleEvent);
+                _this.container.removeChild(node);
+            }
+        }));
+    };
+    NotyfView.prototype.addNotification = function (notification) {
+        var node = this._renderNotification(notification);
+        this.notifications.push({ notification: notification, node: node });
+        // For a11y purposes, we still want to announce that there's a notification in the screen
+        // even if it comes with no message.
+        this._announce(notification.options.message || 'Notification');
+    };
+    NotyfView.prototype._renderNotification = function (notification) {
+        var _a;
+        var card = this._buildNotificationCard(notification);
+        var className = notification.options.className;
+        if (className) {
+            (_a = card.classList).add.apply(_a, className.split(' '));
+        }
+        this.container.appendChild(card);
+        return card;
+    };
+    NotyfView.prototype._popRenderedNotification = function (notification) {
+        var idx = -1;
+        for (var i = 0; i < this.notifications.length && idx < 0; i++) {
+            if (this.notifications[i].notification === notification) {
+                idx = i;
+            }
+        }
+        if (idx !== -1) {
+            return this.notifications.splice(idx, 1)[0];
+        }
+        return;
+    };
+    NotyfView.prototype.getXPosition = function (options) {
+        var _a;
+        return ((_a = options === null || options === void 0 ? void 0 : options.position) === null || _a === void 0 ? void 0 : _a.x) || 'right';
+    };
+    NotyfView.prototype.getYPosition = function (options) {
+        var _a;
+        return ((_a = options === null || options === void 0 ? void 0 : options.position) === null || _a === void 0 ? void 0 : _a.y) || 'bottom';
+    };
+    NotyfView.prototype.adjustContainerAlignment = function (options) {
+        var align = this.X_POSITION_FLEX_MAP[this.getXPosition(options)];
+        var justify = this.Y_POSITION_FLEX_MAP[this.getYPosition(options)];
+        var style = this.container.style;
+        style.setProperty('justify-content', justify);
+        style.setProperty('align-items', align);
+    };
+    NotyfView.prototype._buildNotificationCard = function (notification) {
+        var _this = this;
+        var options = notification.options;
+        var iconOpts = options.icon;
+        // Adjust container according to position (e.g. top-left, bottom-center, etc)
+        this.adjustContainerAlignment(options);
+        // Create elements
+        var notificationElem = this._createHTMLElement({ tagName: 'div', className: 'notyf__toast' });
+        var ripple = this._createHTMLElement({ tagName: 'div', className: 'notyf__ripple' });
+        var wrapper = this._createHTMLElement({ tagName: 'div', className: 'notyf__wrapper' });
+        var message = this._createHTMLElement({ tagName: 'div', className: 'notyf__message' });
+        message.innerHTML = options.message || '';
+        var mainColor = options.background || options.backgroundColor;
+        // Build the icon and append it to the card
+        if (iconOpts) {
+            var iconContainer = this._createHTMLElement({ tagName: 'div', className: 'notyf__icon' });
+            if (typeof iconOpts === 'string' || iconOpts instanceof String)
+                iconContainer.innerHTML = new String(iconOpts).valueOf();
+            if (typeof iconOpts === 'object') {
+                var _a = iconOpts.tagName, tagName = _a === void 0 ? 'i' : _a, className_1 = iconOpts.className, text = iconOpts.text, _b = iconOpts.color, color = _b === void 0 ? mainColor : _b;
+                var iconElement = this._createHTMLElement({ tagName: tagName, className: className_1, text: text });
+                if (color)
+                    iconElement.style.color = color;
+                iconContainer.appendChild(iconElement);
+            }
+            wrapper.appendChild(iconContainer);
+        }
+        wrapper.appendChild(message);
+        notificationElem.appendChild(wrapper);
+        // Add ripple if applicable, else just paint the full toast
+        if (mainColor) {
+            if (options.ripple) {
+                ripple.style.background = mainColor;
+                notificationElem.appendChild(ripple);
+            }
+            else {
+                notificationElem.style.background = mainColor;
+            }
+        }
+        // Add dismiss button
+        if (options.dismissible) {
+            var dismissWrapper = this._createHTMLElement({ tagName: 'div', className: 'notyf__dismiss' });
+            var dismissButton = this._createHTMLElement({
+                tagName: 'button',
+                className: 'notyf__dismiss-btn',
+            });
+            dismissWrapper.appendChild(dismissButton);
+            wrapper.appendChild(dismissWrapper);
+            notificationElem.classList.add("notyf__toast--dismissible");
+            dismissButton.addEventListener('click', function (event) {
+                var _a, _b;
+                (_b = (_a = _this.events)[NotyfEvent.Dismiss]) === null || _b === void 0 ? void 0 : _b.call(_a, { target: notification, event: event });
+                event.stopPropagation();
+            });
+        }
+        notificationElem.addEventListener('click', function (event) { var _a, _b; return (_b = (_a = _this.events)[NotyfEvent.Click]) === null || _b === void 0 ? void 0 : _b.call(_a, { target: notification, event: event }); });
+        // Adjust margins depending on whether its an upper or lower notification
+        var className = this.getYPosition(options) === 'top' ? 'upper' : 'lower';
+        notificationElem.classList.add("notyf__toast--" + className);
+        return notificationElem;
+    };
+    NotyfView.prototype._createHTMLElement = function (_a) {
+        var tagName = _a.tagName, className = _a.className, text = _a.text;
+        var elem = document.createElement(tagName);
+        if (className) {
+            elem.className = className;
+        }
+        elem.textContent = text || null;
+        return elem;
+    };
+    /**
+     * Creates an invisible container which will announce the notyfs to
+     * screen readers
+     */
+    NotyfView.prototype._createA11yContainer = function () {
+        var a11yContainer = this._createHTMLElement({ tagName: 'div', className: 'notyf-announcer' });
+        a11yContainer.setAttribute('aria-atomic', 'true');
+        a11yContainer.setAttribute('aria-live', 'polite');
+        // Set the a11y container to be visible hidden. Can't use display: none as
+        // screen readers won't read it.
+        a11yContainer.style.border = '0';
+        a11yContainer.style.clip = 'rect(0 0 0 0)';
+        a11yContainer.style.height = '1px';
+        a11yContainer.style.margin = '-1px';
+        a11yContainer.style.overflow = 'hidden';
+        a11yContainer.style.padding = '0';
+        a11yContainer.style.position = 'absolute';
+        a11yContainer.style.width = '1px';
+        a11yContainer.style.outline = '0';
+        document.body.appendChild(a11yContainer);
+        this.a11yContainer = a11yContainer;
+    };
+    /**
+     * Announces a message to screenreaders.
+     */
+    NotyfView.prototype._announce = function (message) {
+        var _this = this;
+        this.a11yContainer.textContent = '';
+        // This 100ms timeout is necessary for some browser + screen-reader combinations:
+        // - Both JAWS and NVDA over IE11 will not announce anything without a non-zero timeout.
+        // - With Chrome and IE11 with NVDA or JAWS, a repeated (identical) message won't be read a
+        //   second time without clearing and then using a non-zero delay.
+        // (using JAWS 17 at time of this writing).
+        // https://github.com/angular/material2/blob/master/src/cdk/a11y/live-announcer/live-announcer.ts
+        setTimeout(function () {
+            _this.a11yContainer.textContent = message;
+        }, 100);
+    };
+    /**
+     * Determine which animationend event is supported
+     */
+    NotyfView.prototype._getAnimationEndEventName = function () {
+        var el = document.createElement('_fake');
+        var transitions = {
+            MozTransition: 'animationend',
+            OTransition: 'oAnimationEnd',
+            WebkitTransition: 'webkitAnimationEnd',
+            transition: 'animationend',
+        };
+        var t;
+        for (t in transitions) {
+            if (el.style[t] !== undefined) {
+                return transitions[t];
+            }
+        }
+        // No supported animation end event. Using "animationend" as a fallback
+        return 'animationend';
+    };
+    return NotyfView;
+}());
+
+/**
+ * Main controller class. Defines the main Notyf API.
+ */
+var Notyf = /** @class */ (function () {
+    function Notyf(opts) {
+        var _this = this;
+        this.dismiss = this._removeNotification;
+        this.notifications = new NotyfArray();
+        this.view = new NotyfView();
+        var types = this.registerTypes(opts);
+        this.options = __assign(__assign({}, DEFAULT_OPTIONS), opts);
+        this.options.types = types;
+        this.notifications.onUpdate(function (elem, type) { return _this.view.update(elem, type); });
+        this.view.on(NotyfEvent.Dismiss, function (_a) {
+            var target = _a.target, event = _a.event;
+            _this._removeNotification(target);
+            // tslint:disable-next-line: no-string-literal
+            target['triggerEvent'](NotyfEvent.Dismiss, event);
+        });
+        // tslint:disable-next-line: no-string-literal
+        this.view.on(NotyfEvent.Click, function (_a) {
+            var target = _a.target, event = _a.event;
+            return target['triggerEvent'](NotyfEvent.Click, event);
+        });
+    }
+    Notyf.prototype.error = function (payload) {
+        var options = this.normalizeOptions('error', payload);
+        return this.open(options);
+    };
+    Notyf.prototype.success = function (payload) {
+        var options = this.normalizeOptions('success', payload);
+        return this.open(options);
+    };
+    Notyf.prototype.open = function (options) {
+        var defaultOpts = this.options.types.find(function (_a) {
+            var type = _a.type;
+            return type === options.type;
+        }) || {};
+        var config = __assign(__assign({}, defaultOpts), options);
+        this.assignProps(['ripple', 'position', 'dismissible'], config);
+        var notification = new NotyfNotification(config);
+        this._pushNotification(notification);
+        return notification;
+    };
+    Notyf.prototype.dismissAll = function () {
+        while (this.notifications.splice(0, 1))
+            ;
+    };
+    /**
+     * Assigns properties to a config object based on two rules:
+     * 1. If the config object already sets that prop, leave it as so
+     * 2. Otherwise, use the default prop from the global options
+     *
+     * It's intended to build the final config object to open a notification. e.g. if
+     * 'dismissible' is not set, then use the value from the global config.
+     *
+     * @param props - properties to be assigned to the config object
+     * @param config - object whose properties need to be set
+     */
+    Notyf.prototype.assignProps = function (props, config) {
+        var _this = this;
+        props.forEach(function (prop) {
+            // intentional double equality to check for both null and undefined
+            config[prop] = config[prop] == null ? _this.options[prop] : config[prop];
+        });
+    };
+    Notyf.prototype._pushNotification = function (notification) {
+        var _this = this;
+        this.notifications.push(notification);
+        var duration = notification.options.duration !== undefined ? notification.options.duration : this.options.duration;
+        if (duration) {
+            setTimeout(function () { return _this._removeNotification(notification); }, duration);
+        }
+    };
+    Notyf.prototype._removeNotification = function (notification) {
+        var index = this.notifications.indexOf(notification);
+        if (index !== -1) {
+            this.notifications.splice(index, 1);
+        }
+    };
+    Notyf.prototype.normalizeOptions = function (type, payload) {
+        var options = { type: type };
+        if (typeof payload === 'string') {
+            options.message = payload;
+        }
+        else if (typeof payload === 'object') {
+            options = __assign(__assign({}, options), payload);
+        }
+        return options;
+    };
+    Notyf.prototype.registerTypes = function (opts) {
+        var incomingTypes = ((opts && opts.types) || []).slice();
+        var finalDefaultTypes = DEFAULT_OPTIONS.types.map(function (defaultType) {
+            // find if there's a default type within the user input's types, if so, it means the user
+            // wants to change some of the default settings
+            var userTypeIdx = -1;
+            incomingTypes.forEach(function (t, idx) {
+                if (t.type === defaultType.type)
+                    userTypeIdx = idx;
+            });
+            var userType = userTypeIdx !== -1 ? incomingTypes.splice(userTypeIdx, 1)[0] : {};
+            return __assign(__assign({}, defaultType), userType);
+        });
+        return finalDefaultTypes.concat(incomingTypes);
+    };
+    return Notyf;
+}());
+
+
 
 
 /***/ }),
@@ -82028,6 +82660,36 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ "./node_modules/scheduler/cjs/scheduler-tracing.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/notyf/notyf.min.css":
+/*!******************************************!*\
+  !*** ./node_modules/notyf/notyf.min.css ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_notyf_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./notyf.min.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/notyf/notyf.min.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_notyf_min_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_notyf_min_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
 
 /***/ }),
 

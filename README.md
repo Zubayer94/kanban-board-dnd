@@ -1,62 +1,45 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<!-- ![sample-image](https://raw.githubusercontent.com/Zubayer94/TechBlog/main/public/images/home-layout.png) -->
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Kanban Board - dnd
 
-## About Laravel
+An application with the concept of kanban board using ReactJS as a frontend Javascript Framework. Developed API using PHP Laravel framework with MySQL database to pass data front to back. In this board you can add your `todo` lists and smoothly `Drag and Drop` those lists into `in progress` or `done` board. Drag and Drop is fun...
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Built With
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<a href='//laravel.com'><img align="left" width='300px' src="https://camo.githubusercontent.com/5ceadc94fd40688144b193fd8ece2b805d79ca9b/68747470733a2f2f6c61726176656c2e636f6d2f6173736574732f696d672f636f6d706f6e656e74732f6c6f676f2d6c61726176656c2e737667"></a>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<a href='//reactjs.org/'><img width='100px' src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"></a>
 
-## Learning Laravel
+## Install and Run
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   clone project .
+-   install composer dependencies using `composer install` (of course you need, php and composer .
+-   create `.env` file by copying from `.env.example` .
+-   run `php artisan key:generate` command, this will get APP_KEY in `.env` file .
+-   create database and fill information in `.env' file .
+-   now run migrations for creating table `php artisan migrate` .
+-   run `php artisan passport:install` for generating access tokens.
+-   Now run `php artisan db:seed`, for seeding data to the database.
+-   Now run `php artisan optimize:clear`.
+-   For setting base url go to `root/js/bootstrap.js` file, find `window.axios.defaults.baseURL = 'http://demo-site.test/api'` fill url to call API from backend.
+-   Finally run `npm run dev` which will run your app on local server.
+-   That's It, You can modify and create a pull request, Thanks.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Features
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+⚡️ Add todo list.\
+⚡️ Created Drag & Droppable function.\
+⚡️ Drag & Dropp item smoothly into `Todo` or `In progress` or `Done` field.\
+⚡️ Manage state with context api, laravel api call & Mysql.\
+⚡️ Followed design patterns.\
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+## Technologies used 🛠️
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+🪓 axios\
+🪓 notyf\
+🪓 lodash\
+🪓 react-beautiful-dnd

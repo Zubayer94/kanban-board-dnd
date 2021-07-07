@@ -27,14 +27,36 @@
 
 .droppable-col {
     width: 100%;
-    padding: 7px 7px 0 7px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
 }
 .item {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     color: rgb(102, 97, 97);
     background-color: rgb(223, 215, 215);
     border: 1px solid rgb(31, 30, 30) !important;
-    /* padding: 5px; */
+    padding: 5px;
+}
+
+.inputForm {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.inputForm input {
+    margin-right: 10px;
+    height: 42px;
+    width: 265px;
+}
+.inputForm button {
+    width: 65px;
+    color: tomato;
+    font-weight: 900;
+    border: 1px solid rgb(31, 30, 30) !important;
+}
+.inputForm button:hover {
+    color: white;
+    background-color: tomato;
 }
