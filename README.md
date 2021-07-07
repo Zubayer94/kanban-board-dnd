@@ -1,4 +1,4 @@
-<!-- ![sample-image](https://raw.githubusercontent.com/Zubayer94/TechBlog/main/public/images/home-layout.png) -->
+![sample-image](https://raw.githubusercontent.com/Zubayer94/kanban-board-dnd/main/public/kanban-board.PNG)
 
 # Kanban Board - dnd
 
@@ -31,9 +31,9 @@ An application with the concept of kanban board using ReactJS as a frontend Java
 
 ⚡️ Add todo list.\
 ⚡️ Created Drag & Droppable function.\
-⚡️ Drag & Dropp item smoothly into `Todo` or `In progress` or `Done` field.\
+⚡️ Drag & Drop item smoothly into `Todo` or `In progress` or `Done` field.\
 ⚡️ Manage state with context api, laravel api call & Mysql.\
-⚡️ Followed design patterns.\
+⚡️ Managed UI design with custom css.
 
 ---
 
